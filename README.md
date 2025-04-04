@@ -1,3 +1,49 @@
+ツール名
+主なAWSサービス
+用途・理由
+Selenium
+EC2（Amazon Linux / Ubuntu 等）
+テストスクリプトやブラウザ（Chrome Headless 等）を実行するためのサーバー環境
+
+VPC / セキュリティグループ
+テスト対象へのアクセス制御、CI/CD環境との接続管理
+
+IAM（任意）
+テストログをS3へアップロードする場合や、CIと連携するための最小限の実行権限設定
+
+S3（任意）
+テスト結果・レポート・ログの保存先として活用可能
+
+
+
+
+
+
+| Katalon Studio   | EC2（Linux / Mac互換のCLI環境）       | CLIモードのスクリプト実行環境として。GUI版はローカル専用                        |
+|                      | IAM（任意）                          | TestOpsやS3との連携で認証が必要な場合に使用                                     |
+|                      | S3（任意）                           | テスト結果・レポート保存用                                                     |
+|                      | VPC / セキュリティグループ             | テスト対象のAWS環境への接続に必要                                              |
+|                      | Katalon TestOps（外部SaaS）       | 商用版を使う場合、AWS内テスト環境との統合・集中管理に活用                      |
+
+| TestComplete     | EC2（Windowsインスタンス）        | Windowsアプリであるため、WindowsベースのEC2にインストール                      |
+|                      | RDP（リモートデスクトップ）           | EC2への接続およびGUI操作に必要                                                 |
+|                      | IAM（任意）                          | 結果ログの保存や、CI/CD統合用に最小限の権限が必要な場合あり                    |
+|                      | VPC / セキュリティグループ             | テスト対象との疎通、外部アクセス管理                                            |
+
+⸻
+
+✅ 一言まとめ：
+	•	Selenium： 最も軽量かつ自由度が高く、Linux EC2 上で構築しやすい
+	•	Katalon： CLI実行が可能、TestOpsと併用する場合は外部接続用IAM設定が必要
+	•	TestComplete： 唯一のWindows専用、EC2のWindowsライセンスコストにも注意が必要
+
+
+
+
+ 
+
+
+
 ■ Selenium（無料）
 
 ① 主な機能
